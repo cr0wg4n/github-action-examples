@@ -21,11 +21,11 @@ jobs:
 
       - name: back to home
         run : cd
-        
+
       - name: clone public repo
         uses: actions/checkout@v2
         with: 
           repository: 'cr0wg4n/plantilla-latex-proyecto-de-grado' # You don't need a token
 
       - name: get evidences
-        run: ls -la
+        run : cd && ls -la
