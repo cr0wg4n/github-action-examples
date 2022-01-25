@@ -15,12 +15,10 @@ jobs:
     steps:
       - name: clone actual repository
         uses: actions/checkout@v2
-        
-      - name: demo
-        run: export DEMO=12 && echo $DEMO
-        
+
       - name: load environment file
-        run: export $(cat .env | xargs)
+        run: export $(cat .env | xargs) && echo $MONGO_PORT
+        shell: bash
         
       - name: test env loading
         run: echo $MONGO_PORT
