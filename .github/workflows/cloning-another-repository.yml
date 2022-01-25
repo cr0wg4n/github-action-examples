@@ -20,12 +20,15 @@ jobs:
           token: ${{ secrets.GH_ACCESS_TOKEN }} # only if your cloned repo is private
 
       - name: back to home
-        run : cd
+        run : pwd && cd
 
       - name: clone public repo
         uses: actions/checkout@v2
         with: 
           repository: 'cr0wg4n/plantilla-latex-proyecto-de-grado' # You don't need a token
+
+      - name: view path
+        run : pwd
 
       - name: get evidences
         run : cd && ls -la
