@@ -22,8 +22,8 @@ jobs:
         run: cd actual && ls -a
 
       - name: run docker compose
-        run: docker-compose -f ./.docker/docker-compose.mongo.yml up -d && sleep 5
-
+        run: cd .docker && docker-compose -f docker-compose.mongo.yml up -d && sleep 5 && cd ..
+        
       - name: mongo is up?
         run: nc -zvv localhost $MONGO_PORT
 
