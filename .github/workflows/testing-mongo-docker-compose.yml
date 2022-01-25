@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: load environment file
-        run: source .env
+        run: export $(cat .env | xargs)
         
       - name: test env loading
         run: echo $MONGO_PORT
@@ -29,5 +29,5 @@ jobs:
         run: sleep 15 && docker ps
         
       - name: mongo is up?
-        run: nc -zvv localhost 27017
+        run: nc -zvv localhost $MONGO_PORT
 
