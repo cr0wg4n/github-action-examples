@@ -1,0 +1,21 @@
+name: cloning another repository
+
+on: 
+  push: 
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs: 
+  all: 
+    name: cloning another repository
+    runs-on: ubuntu-latest
+    steps: 
+      - name: clone repo
+        uses: actions/checkout@v2
+        with: 
+          repository: 'cr0wg4n/plantilla-latex-proyecto-de-grado'
+      - name: get evidences
+        run: ls -la
