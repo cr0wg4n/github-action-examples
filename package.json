@@ -1,0 +1,24 @@
+{
+  "name": "github-action-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cr0wg4n/github-action-examples.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cr0wg4n/github-action-examples/issues"
+  },
+  "homepage": "https://github.com/cr0wg4n/github-action-examples#readme",
+  "devDependencies": {
+    "husky": "^7.0.4"
+  }
+}
