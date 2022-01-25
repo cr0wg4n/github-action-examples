@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: clone actual repository
         uses: actions/checkout@v2
-          with:
-            path: actual
+        with:
+          path: actual
 
       - name: go to actual context
         run: cd actual
