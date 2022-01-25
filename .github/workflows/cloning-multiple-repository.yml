@@ -1,4 +1,4 @@
-name: cloning another repository
+name: cloning multiple repositories
 
 on: 
   push: 
@@ -10,7 +10,7 @@ on:
 
 jobs: 
   all: 
-    name: cloning another repository
+    name: cloning multiple repositories
     runs-on: ubuntu-latest
     steps: 
       - name: clone private repo
@@ -20,15 +20,18 @@ jobs:
           token: ${{ secrets.GH_ACCESS_TOKEN }} # only if your cloned repo is private
           path: my-path
 
-      - name: get evidences
-        run : pwd && ls -l
-
       - name: clone public repo
         uses: actions/checkout@v2
         with: 
           repository: 'cr0wg4n/plantilla-latex-proyecto-de-grado' # You don't need a token
           path: plantilla-latex-proyecto-de-grado
 
-      - name: get evidences
-        run : pwd && ls -l
+      - name: clone actual repository
+        uses: actions/checkout@v2
+        with: 
+          path: actual
 
+      - name: get evidences
+        run : ls -l
+
+# /home/runner/work/github-action-examples/github-action-examples <--- root path
