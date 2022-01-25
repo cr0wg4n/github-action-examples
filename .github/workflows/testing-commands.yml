@@ -1,0 +1,18 @@
+name: testing some commands
+
+on: 
+  push: 
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs: 
+  all: 
+    name: testing some commands
+    runs-on: ubuntu-latest
+    steps:
+      - name: is docker here? 
+        run: docker --version
+      - name: is docker-compose here too?
+        run: docker-compose --version
