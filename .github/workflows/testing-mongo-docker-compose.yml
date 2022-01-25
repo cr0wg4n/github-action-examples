@@ -16,19 +16,12 @@ jobs:
       - name: clone actual repository
         uses: actions/checkout@v2
 
-      - name: load environment file
-        run: export $(cat .env | xargs) && echo $MONGO_PORT
-        shell: bash
-        
-      - name: test env loading
-        run: echo $MONGO_PORT
-        
       - name: run docker compose
         run: docker-compose -f ".docker/docker-compose.mongo.yml" up -d
 
       - name: sleep 
-        run: sleep 15 && docker ps
+        run: docker ps
         
       - name: mongo is up?
-        run: nc -zvv localhost $MONGO_PORT
+        run: export $(cat .env | xargs) && nc -zvv localhost $MONGO_PORT
 
