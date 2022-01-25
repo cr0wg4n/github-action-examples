@@ -16,6 +16,7 @@ jobs:
       - name: clone repo
         uses: actions/checkout@v2
         with: 
-          repository: 'cr0wg4n/plantilla-latex-proyecto-de-grado'
+          # repository: 'cr0wg4n/plantilla-latex-proyecto-de-grado'
+          repository: 'cr0wg4n/my-path' private
       - name: get evidences
         run: ls -la
