@@ -26,8 +26,8 @@ jobs:
         run: docker-compose -f ".docker/docker-compose.mongo.yml" up -d
 
       - name: sleep 
-        run: sleep 15
+        run: sleep 15 && docker ps
         
       - name: mongo is up?
-        run: nc -zvv localhost $MONGO_PORT
+        run: nc -zvv localhost 27017
 
