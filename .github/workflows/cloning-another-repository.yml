@@ -13,11 +13,19 @@ jobs:
     name: cloning another repository
     runs-on: ubuntu-latest
     steps: 
-      - name: clone repo
+      - name: clone private repo
         uses: actions/checkout@v2
         with: 
-          repository: 'cr0wg4n/my-path' # private, still works if is your repository 
-          # repository: 'cr0wg4n/plantilla-latex-proyecto-de-grado' # public, don't need a token
+          repository: 'cr0wg4n/my-path'
           token: ${{ secrets.GH_ACCESS_TOKEN }} # only if your cloned repo is private
+
+      - name: back to home
+        run : cd
+        
+      - name: clone public repo
+        uses: actions/checkout@v2
+        with: 
+          repository: 'cr0wg4n/plantilla-latex-proyecto-de-grado' # You don't need a token
+
       - name: get evidences
         run: ls -la
