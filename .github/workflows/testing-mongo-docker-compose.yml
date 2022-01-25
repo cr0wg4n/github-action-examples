@@ -1,0 +1,33 @@
+name: testing mongo (docker-compose method)
+
+on: 
+  push: 
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs: 
+  all: 
+    name: testing mongo 
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone actual repository
+        uses: actions/checkout@v2
+          path: actual
+
+      - name: go to actual context
+        run: cd actual
+
+      - name: run docker compose
+        run: docker-compose -f .docker/docker-compose.mongo.yml up -d && sleep 5
+
+      - name: mongo is up?
+        run: nc -zvv localhost $MONGO_PORT
+
+      - name: load environment file
+        run: source .env
+
+      - name: test env loading
+        run: echo $MONGO_PORT
