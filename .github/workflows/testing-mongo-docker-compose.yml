@@ -19,16 +19,15 @@ jobs:
       - name: load environment file
         run: source .env
         
+      - name: test env loading
+        run: echo $MONGO_PORT
+        
       - name: run docker compose
-        run: docker-compose -f ".docker/docker-compose.mongo.yml" up -d && sleep 5
+        run: docker-compose -f ".docker/docker-compose.mongo.yml" up -d
 
-#      - name: go to actual context
-#        run: cd actual && ls -a
-
+      - name: sleep 
+        run: sleep 15
+        
       - name: mongo is up?
         run: nc -zvv localhost $MONGO_PORT
 
-
-
-      - name: test env loading
-        run: echo $MONGO_PORT
